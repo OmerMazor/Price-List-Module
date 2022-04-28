@@ -1,0 +1,45 @@
+<div class="container">
+  <div id="contact">
+    <h3>Price List Update</h3>
+    <h4>Update Entry</h4>
+    <fieldset>
+      <input
+        placeholder="Price List ID"
+        type="text"
+        [(ngModel)]="this.activePriceList.priceListID"
+        tabindex="1"
+        disabled
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Price List Name"
+        [(ngModel)]="this.activePriceList.priceListName"
+        type="email"
+        tabindex="2"
+        required
+        (keyup)="onlyText($event)"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Ext Erp Price List ID"
+        type="number"
+        required
+        [(ngModel)]="this.activePriceList.extErpPriceListID"
+        onkeypress="return /[0-9]/i.test(event.key)"
+      />
+    </fieldset>
+    <fieldset>
+      <button
+        name="submit"
+        type="submit"
+        id="contact-submit"
+        data-submit="...Sending"
+        (click)="updatePriceList()"
+      >
+        Submit
+      </button>
+    </fieldset>
+  </div>
+</div>

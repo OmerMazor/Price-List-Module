@@ -1,0 +1,52 @@
+<section>
+  <!--for demo wrap-->
+  <h1>PRICE LIST MODULE</h1>
+  <div>
+    <input
+      type="text"
+      class="search"
+      placeholder="Search..."
+      [(ngModel)]="searchText"
+      (keyup)="getFilterData($event)"
+    />
+  </div>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Price List ID</th>
+          <th>Price List Name</th>
+          <th>Ext Erp Price List ID</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr
+          *ngFor="
+            let item of this._PriceListService.PriceListData;
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.priceListID }}</td>
+          <td>{{ item.priceListName }}</td>
+          <td>
+            {{
+              item.extErpPriceListID == null ? "N/A" : item.extErpPriceListID
+            }}
+          </td>
+          <td>
+            <span class="material-icons" (click)="editPriceList(item)">
+              edit
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
